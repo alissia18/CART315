@@ -18,11 +18,11 @@ public class PaddleController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (Input.GetKey(downKey) && yLoc > -5f)
+        if (Input.GetKey(downKey) && transform.position.y > -2f)
         {
             yLoc -= paddleSpeed;
         }
-        if (Input.GetKey(upKey) && yLoc < 5f)
+        if (Input.GetKey(upKey) && transform.position.y < 2f)
         {
             yLoc += paddleSpeed;
         }

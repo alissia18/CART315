@@ -1,10 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Player { LEFT, RIGHT };
+
 public class BallController : MonoBehaviour
 
 {
+    public event Action<Player, int> onPlayerScoreUpdate;
+
     private Rigidbody2D rb;
     public float ballSpeed;
     public float maxSpeed = 10f;
@@ -14,6 +19,18 @@ public class BallController : MonoBehaviour
     private int hDir, vDir;
 
     public int leftPlayerScore, rightPlayerScore;
+
+    public AudioSource hitSFX;
+    public AudioSource scoreSFX;
+    public AudioSource leftPaddleSFX;
+    public AudioSource rightPaddleSFX;
+
+    public const string WALL_LEFT_TAG = "WallLeft";
+    public const string WALL_RIGHT_TAG = "WallRight";
+    public const string WALL_TAG = "Wall";
+    public const string PADDLE_LEFT_TAG = "PaddleLeft";
+    public const string PADDLE_RIGHT_TAG = "PaddleRight";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +48,8 @@ public class BallController : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         // choose horizontal and vertical direction options
-        hDir = dirOptions[Random.Range(0, dirOptions.Length)]; // randomized based on dirOptions
-        vDir = dirOptions[Random.Range(0, dirOptions.Length)];
+        hDir = dirOptions[UnityEngine.Random.Range(0, dirOptions.Length)]; // randomized based on dirOptions
+        vDir = dirOptions[UnityEngine.Random.Range(0, dirOptions.Length)];
 
         // add horizontal force
         rb.AddForce(transform.right * ballSpeed * hDir); // left or right
@@ -56,18 +73,33 @@ public class BallController : MonoBehaviour
         // check if ball sped up or slowed down too much
         SpeedCheck();
 
-        // did we hit the left wall?
-        if (other.gameObject.name == "Left Wall")
+        
+        switch (other.gameObject.tag)
         {
-            rightPlayerScore += 1;
-            Reset();
-        }
-
-        // did we hit the right Wall?
-        if (other.gameObject.name == "Right Wall")
-        {
-            leftPlayerScore += 1;
-            Reset();
+            // did we hit the left wall?
+            case WALL_LEFT_TAG:
+                rightPlayerScore += 1;
+                // if anyone is listening (?), onPlayerScoreUpdate just HAPPENED!!!
+                onPlayerScoreUpdate?.Invoke(Player.RIGHT, rightPlayerScore);
+                Reset();
+                scoreSFX?.Play();
+                break;
+            // did we hit the right Wall?
+            case WALL_RIGHT_TAG:
+                leftPlayerScore += 1;
+                onPlayerScoreUpdate?.Invoke(Player.LEFT, leftPlayerScore);
+                Reset();
+                scoreSFX?.Play();
+                break;
+            case WALL_TAG:
+                hitSFX?.Play();
+                break;
+            case PADDLE_LEFT_TAG:
+                leftPaddleSFX?.Play();
+                break;
+            case PADDLE_RIGHT_TAG:
+                rightPaddleSFX?.Play();
+                break;
         }
     }
 
