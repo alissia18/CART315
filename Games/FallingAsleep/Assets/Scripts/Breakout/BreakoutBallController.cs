@@ -8,7 +8,6 @@ public class BreakoutBallController : MonoBehaviour
 
 {
     public event Action onKillAreaEntered;
-    public event Action onBrickHit;
 
     private Rigidbody2D rb;
     public float ballSpeed;
@@ -92,8 +91,8 @@ public class BreakoutBallController : MonoBehaviour
                 break;
 
             case BRICK_TAG:
-                onBrickHit?.Invoke();
-                Destroy(other.gameObject);
+                // the "?" checks if it's null :3
+                other.gameObject.GetComponent<BreakoutBrick>()?.OnHit();
                 break;
 
         }

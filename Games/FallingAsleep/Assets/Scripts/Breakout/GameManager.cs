@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
         if(breakoutBallController != null)
         {
             breakoutBallController.onKillAreaEntered += OnKillAreaEntered;
-            breakoutBallController.onBrickHit += OnBrickHit;
         }
     }
 
@@ -41,19 +40,14 @@ public class GameManager : MonoBehaviour
         if (breakoutBallController != null)
         {
             breakoutBallController.onKillAreaEntered -= OnKillAreaEntered;
-            breakoutBallController.onBrickHit -= OnBrickHit;
         }
     }
 
     public void OnKillAreaEntered()
     {
         lives -= 1;
-        livesImage.fillAmount = lives * 0.2f;
+        livesImage.fillAmount = lives * 0.33f;
     }
 
-    public void OnBrickHit()
-    {
-
-        points += 10;
-    }
+   
 }
