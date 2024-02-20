@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class KillZone : MonoBehaviour
@@ -9,7 +8,10 @@ public class KillZone : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case Const.ENEMY_TAG:
+                Destroy(other.gameObject);
+                break;
             case Const.PROJECTILE_TAG:
+                GameManager.Instance.UpdateLives(-1);
                 Destroy(other.gameObject);
                 break;
         }

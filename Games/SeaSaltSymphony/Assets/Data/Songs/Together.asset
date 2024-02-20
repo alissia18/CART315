@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Together
   m_EditorClassIdentifier: 
   bgm: {fileID: 8300000, guid: 09326d83a754a904da6afef9675033f5, type: 3}
-  songDuration: 30
+  songDuration: 60
   beatLength: 1.5
   enemySpawns:
   - type: 0
@@ -33,4 +33,61 @@ MonoBehaviour:
     lane: 1
   - type: 1
     beat: 6
+    lane: 3
+  - type: 1
+    beat: 8
     lane: 4
+  - type: 2
+    beat: 10
+    lane: 2
+  - type: 0
+    beat: 12
+    lane: 3
+  - type: 0
+    beat: 13
+    lane: 2
+  - type: 2
+    beat: 15
+    lane: 4
+  - type: 0
+    beat: 16
+    lane: 3
+  - type: 0
+    beat: 17
+    lane: 2
+  - type: 0
+    beat: 18
+    lane: 1
+  - type: 0
+    beat: 20
+    lane: 3
+  - type: 0
+    beat: 21
+    lane: 2
+  - type: 0
+    beat: 22
+    lane: 1
+  - type: 1
+    beat: 24
+    lane: 2
+  - type: 1
+    beat: 26
+    lane: 3
+  - type: 0
+    beat: 28
+    lane: 1
+  - type: 1
+    beat: 30
+    lane: 3
+  - type: 1
+    beat: 32
+    lane: 2
+  - type: 1
+    beat: 34
+    lane: 3
+  - type: 0
+    beat: 36
+    lane: 1
+  - type: 2
+    beat: 38
+    lane: 3

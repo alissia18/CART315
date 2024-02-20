@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     
     public int health;
     public int nbProjectiles = 1;
+    public float projectileDelayRatio = 1f;
     [HideInInspector]public float projectileDelay;
     
 
@@ -17,7 +18,8 @@ public class EnemyController : MonoBehaviour
     private float projectileTimer;
     
     public GameObject note;
-
+    public GameObject deathFX;
+    
     void Awake()
     {
         if (rb == null) rb = GetComponent<Rigidbody2D>();
@@ -34,7 +36,7 @@ public class EnemyController : MonoBehaviour
         if (projectileIndex <= nbProjectiles)
         {
             projectileTimer += Time.deltaTime;
-            if (projectileTimer >= projectileIndex * projectileDelay)
+            if (projectileTimer >= projectileIndex * projectileDelay * projectileDelayRatio)
             {
                 GameObject newNote = Instantiate(note, transform.position, Quaternion.identity);
                 projectileIndex++;
@@ -51,7 +53,11 @@ public class EnemyController : MonoBehaviour
     {
         health--;
         if (health <= 0)
+        {
+            if (deathFX != null) 
+                Instantiate(deathFX, transform.position, Quaternion.identity);
             Destroy(gameObject);
+        }
     }
 
     

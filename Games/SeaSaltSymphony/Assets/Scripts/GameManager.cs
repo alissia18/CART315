@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +12,13 @@ public class GameManager : MonoBehaviour
     public int screenHeight = 6;
     public float laneOffset;
 
+    public static GameManager Instance;
+    public event Action onPlayerLifeUpdate;
+    public event Action onPlayerScoreUpdate;
+    public int lives = 6;
+    public int score = 0;
+    private int scorePenalty = 10;
+    
     public int nbLanes = 4;
     public int startLane = 1;
     public SongScriptable songData;
@@ -25,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         laneWidth = (float)screenHeight / nbLanes;
         Debug.Log(laneWidth);
     }
@@ -60,6 +71,22 @@ public class GameManager : MonoBehaviour
         }
 
         audioSource.Stop();
-        // call the you win screen!! :D But...it doesn't exist yet :c
+        SceneManager.LoadScene("YouWin");
+    }
+
+    public void UpdateScore(int scoreBonus)
+    {
+        score += scoreBonus;
+        onPlayerScoreUpdate?.Invoke();
+    }
+    public void UpdateLives(int livesToChange)
+    {
+        lives+= livesToChange;
+        UpdateScore(-scorePenalty);
+        if (lives == 0)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+        onPlayerLifeUpdate?.Invoke();
     }
 }

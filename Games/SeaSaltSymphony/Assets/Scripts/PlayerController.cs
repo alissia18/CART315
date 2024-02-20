@@ -8,11 +8,9 @@ public class PlayerController : MonoBehaviour
 {
     public GameManager gameManager;
     public Rigidbody2D rb;
-    public Sprite idleSprite;
-    public Sprite blockSprite;
+    public Collider2D blockCol;
+    public Animator anim;
     private SpriteRenderer currentSprite;
-    
-    public int health = 3;
     
     private float yLoc = 0; // middle of screen
     private int currentLane = 0;
@@ -25,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private float blockTimer;
     private float blockCooldownTimer;
 
+    [Header("Animation")] public string blockingAnimTag = "blocking";
     
     public bool IsBlocking { get => blockTimer > 0; }
     public bool IsBlockingOnCooldown { get => blockCooldownTimer > 0; }
@@ -43,13 +42,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(downKey) && currentLane > 1)
+        if (!IsBlocking)
         {
-            MovePlayer(-1);
-        }
-        else if (Input.GetKeyDown(upKey) && currentLane < gameManager.nbLanes)
-        {
-            MovePlayer(1);
+            if (Input.GetKeyDown(downKey) && currentLane > 1)
+            {
+                MovePlayer(-1);
+            }
+            else if (Input.GetKeyDown(upKey) && currentLane < gameManager.nbLanes)
+            {
+                MovePlayer(1);
+            }
         }
 
         if (!IsBlockingOnCooldown && !IsBlocking && Input.GetKeyDown(blockKey))
@@ -84,14 +86,16 @@ public class PlayerController : MonoBehaviour
     {
         if (IsBlocking || IsBlockingOnCooldown) return;
         blockTimer = blockTime;
-        currentSprite.sprite = blockSprite;
+        if (blockCol) blockCol.gameObject.SetActive(true);
+        anim?.SetBool(blockingAnimTag, true);
     }
 
     private void StopBlock()
     {
         blockCooldownTimer = blockCooldownTime;
         blockTimer = 0;
-        currentSprite.sprite = idleSprite;
+        if (blockCol) blockCol.gameObject.SetActive(false);
+        anim?.SetBool(blockingAnimTag, false);
     }
     
     private void StopBlockCooldown()
@@ -100,8 +104,4 @@ public class PlayerController : MonoBehaviour
         blockCooldownTimer = 0;
     }
     
-    public void Damage()
-    {
-        health--;
-    }
 }

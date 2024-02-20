@@ -6,6 +6,7 @@ public class NoteController : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float speed;
+    public int scoreBonus = 10;
 
     public bool ignoreEnemies = true;
 
@@ -47,11 +48,17 @@ public class NoteController : MonoBehaviour
                     if (player.IsBlocking)
                     {
                         ignoreEnemies = false;
+                        if (GameManager.Instance.lives < 6)
+                        {
+                            GameManager.Instance.UpdateLives(1);
+                        }
+                        GameManager.Instance.UpdateScore(scoreBonus);
                         FlipSpeed();
                     }
                     else
                     {
-                        player.Damage();
+                        GameManager.Instance.UpdateLives(-1);
+                        Destroy(this.gameObject);
                     }
                 }
                 
