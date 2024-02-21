@@ -10,6 +10,7 @@ public class ScoreController : MonoBehaviour
     void Start()
     {
         GameManager.Instance.onPlayerScoreUpdate += OnPlayerScoreUpdate;
+        scoreText.text = GameManager.Instance.score.ToString();
     }
 
     void OnDestroy()
