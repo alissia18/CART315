@@ -12,14 +12,11 @@ public class EnemyManager : MonoBehaviour
     public EnemyController axolotl;
     public EnemyController whale;
     
-    public int shootAxisX = 7;
     public int spawnAxisX = 12;
     public float shootDelay;
     private int distanceToShoot;
 
     public enum EnemyType{TURTLE, AXOLOTL, WHALE }
-
-    public SongScriptable song;
 
     private List<EnemySpawn> enemySpawns;
     private Dictionary<EnemyType, EnemyController> enemyDict;
@@ -38,10 +35,12 @@ public class EnemyManager : MonoBehaviour
     
     void Start()
     {
-        beatLength = song.beatLength;
-        enemySpawns = new List<EnemySpawn>(song.enemySpawns);
+        gameManager = GameManager.Instance;
+
+        beatLength = gameManager.songData.beatLength;
+        enemySpawns = new List<EnemySpawn>(gameManager.songData.enemySpawns);
         spawnTimer = - gameManager.startDelay * beatLength;
-        distanceToShoot = spawnAxisX - shootAxisX;
+        distanceToShoot = spawnAxisX - gameManager.shootAxisX;
         speed = distanceToShoot / shootDelay;
     }
 

@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     public GameManager gameManager;
     public Rigidbody2D rb;
+    public Collider2D playerCol;
     public Collider2D blockCol;
     public Animator anim;
     private SpriteRenderer currentSprite;
@@ -19,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     public float blockTime = 1;
     public float blockCooldownTime = 1;
-    
+
     private float blockTimer;
     private float blockCooldownTimer;
 
@@ -38,6 +39,8 @@ public class PlayerController : MonoBehaviour
     {
         currentLane = gameManager.startLane;
         transform.position = new Vector2(gameManager.playerAxisX, gameManager.GetLaneYPos(currentLane));
+        playerCol.enabled = true;
+        blockCol.enabled = false;
     }
 
     void Update()
@@ -86,16 +89,17 @@ public class PlayerController : MonoBehaviour
     {
         if (IsBlocking || IsBlockingOnCooldown) return;
         blockTimer = blockTime;
-        if (blockCol) blockCol.gameObject.SetActive(true);
-        anim?.SetBool(blockingAnimTag, true);
+        blockCol.enabled = true;
+        playerCol.enabled = false;
+        anim?.SetTrigger(blockingAnimTag);
     }
 
-    private void StopBlock()
+    public void StopBlock()
     {
         blockCooldownTimer = blockCooldownTime;
         blockTimer = 0;
-        if (blockCol) blockCol.gameObject.SetActive(false);
-        anim?.SetBool(blockingAnimTag, false);
+        blockCol.enabled = false;
+        playerCol.enabled = true;
     }
     
     private void StopBlockCooldown()

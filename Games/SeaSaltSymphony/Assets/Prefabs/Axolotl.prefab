@@ -99,8 +99,9 @@ MonoBehaviour:
   speed: 2
   health: 2
   nbProjectiles: 2
+  projectileDelayRatio: 1
   projectileDelay: 1.5
-  note: {fileID: 5217495354782463767, guid: 212790ea6a1bf8d4893c5fc5521e8403, type: 3}
+  note: {fileID: -797490137985794113, guid: 212790ea6a1bf8d4893c5fc5521e8403, type: 3}
   deathFX: {fileID: 872245725859611924, guid: 57fc3072eb21af04f99d6b476eb94f47, type: 3}
 --- !u!95 &614559899150714782
 Animator:

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,13 +9,15 @@ public class NoteController : MonoBehaviour
     public float speed;
     public int scoreBonus = 10;
 
-    public bool ignoreEnemies = true;
+    public List<AccuracyBracket> accuracyBrackets = new List<AccuracyBracket>();
+
+    private bool flipped;
 
     void Awake()
     {
         // using transform.Translate is unreliable, instead, we get the rigidbody component...
         if (rb == null) rb = GetComponent<Rigidbody2D>();
-        ignoreEnemies = true;
+        flipped = false;
     }
 
     void FixedUpdate()
@@ -26,7 +29,19 @@ public class NoteController : MonoBehaviour
 
     public void FlipSpeed()
     {
+        flipped = true;
         speed *= -1;
+        float accuracyScore = transform.position.x - GameManager.Instance.noteAxisX;
+
+        for (int i = accuracyBrackets.Count - 1; i >= 0; i-- )
+        {
+            if (accuracyScore >= accuracyBrackets[i].lowerBound || i == 0)
+            {
+                if (accuracyBrackets[i] != null)
+                    Instantiate(accuracyBrackets[i].fx, transform.position, Quaternion.identity);
+                break;
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -34,36 +49,47 @@ public class NoteController : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case Const.ENEMY_TAG:
-                if (!ignoreEnemies)
+                if (flipped)
                 {
                     other.gameObject.GetComponent<EnemyController>()?.Damage();
                     Destroy(this.gameObject);
                 }
                 break;
             case Const.PLAYER_TAG:
-                
-                PlayerController player = other.gameObject.GetComponent<PlayerController>();
-                if (player != null)
+                if (!flipped)
                 {
-                    if (player.IsBlocking)
+                    PlayerController player = other.gameObject.GetComponentInParent<PlayerController>();
+                    if (player != null)
                     {
-                        ignoreEnemies = false;
-                        if (GameManager.Instance.lives < 6)
+                        if (player.IsBlocking)
                         {
-                            GameManager.Instance.UpdateLives(1);
+                            if (GameManager.Instance.lives < 6)
+                            {
+                                GameManager.Instance.UpdateLives(1);
+                            }
+                            GameManager.Instance.UpdateScore(scoreBonus);
+                            FlipSpeed();
+                            player.StopBlock();
                         }
-                        GameManager.Instance.UpdateScore(scoreBonus);
-                        FlipSpeed();
+                        else
+                        {
+                            GameManager.Instance.UpdateLives(-1);
+                            Destroy(this.gameObject);
+                        }
                     }
-                    else
-                    {
-                        GameManager.Instance.UpdateLives(-1);
-                        Destroy(this.gameObject);
-                    }
+
+                    Debug.Log("Speed changed");
+                    
                 }
-                
-                Debug.Log("Speed changed");
                 break;
         }
+    }
+
+    [Serializable]
+    public class AccuracyBracket
+    {
+        public GameObject fx;
+        public float lowerBound;
+        public int scoreBonus = 10;
     }
 }

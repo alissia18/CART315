@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    private GameManager gameManager;
     public Rigidbody2D rb;
+    public Animator anim;
     [HideInInspector]public float speed;
     
     public int health;
@@ -17,9 +19,12 @@ public class EnemyController : MonoBehaviour
     private int projectileIndex;
     private float projectileTimer;
     
-    public GameObject note;
+    public NoteController note;
+    public GameObject hitFX;
     public GameObject deathFX;
-    
+
+    public string fadeAnimParam = "fade";
+
     void Awake()
     {
         if (rb == null) rb = GetComponent<Rigidbody2D>();
@@ -27,6 +32,7 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        gameManager = GameManager.Instance;
         projectileTimer = 0;
         projectileIndex = 1;
     }
@@ -38,8 +44,7 @@ public class EnemyController : MonoBehaviour
             projectileTimer += Time.deltaTime;
             if (projectileTimer >= projectileIndex * projectileDelay * projectileDelayRatio)
             {
-                GameObject newNote = Instantiate(note, transform.position, Quaternion.identity);
-                projectileIndex++;
+                ThrowProjectile();
             }
         }
     }
@@ -52,6 +57,8 @@ public class EnemyController : MonoBehaviour
     public void Damage()
     {
         health--;
+        if (hitFX != null)
+            Instantiate(hitFX, transform.position, Quaternion.identity);
         if (health <= 0)
         {
             if (deathFX != null) 
@@ -60,5 +67,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    
+    public void ThrowProjectile()
+    {
+        NoteController newNote = Instantiate(note.gameObject, transform.position, Quaternion.identity).GetComponent<NoteController>();
+        newNote.speed = (gameManager.shootAxisX - GameManager.Instance.noteAxisX) 
+            / GameManager.Instance.songData.beatLength;
+        projectileIndex++;
+    }
 }

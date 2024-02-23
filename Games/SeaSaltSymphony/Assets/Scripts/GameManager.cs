@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public float playerAxisX = -7.5f;
+    public float noteAxisX = -6.5f;
+    public LineRenderer noteLine;
+    public int shootAxisX = 7;
     public float minScreenPosY = -3;
     public int screenHeight = 6;
     public float laneOffset;
@@ -38,6 +41,15 @@ public class GameManager : MonoBehaviour
         Instance = this;
         laneWidth = (float)screenHeight / nbLanes;
         Debug.Log(laneWidth);
+        if (noteLine != null)
+        {
+            for(int i = 0; i < noteLine.positionCount; i++)
+            {
+                Vector3 pos = noteLine.GetPosition(i);
+                pos.x = noteAxisX;
+                noteLine.SetPosition(i, pos);
+            }
+        }
     }
     
     void Start()
