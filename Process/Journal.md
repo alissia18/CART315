@@ -14,6 +14,49 @@ I have loved almost everything except Ori and the Will of the Wisps, except one 
 ### Techniques that could be used in personal projects?
 I feel especially inspired by how Ori uses the actions the player can take as verbs. Ori doesn’t add new buttons for every new ability the player has. Instead, new abilities get integrated seamlessly into the moveset based on the overarching verb that move falls under. For instance, the underwater dash and burrow both use the same key as the early game Dash ability, since all three involve a burst of speed, the only difference being what environment Ori is in. Similarly, the bash and the grapple abilities both use the same controls. These design decisions help the gameplay feel fluid and not clunky. I feel inspired to take this approach when designing player movesets, as opposed to simply bloating the game with more complex controls that don’t feel natural.
 
+# Journal 2 - Conceptualizing
+
+## Idea #1: Plant reviving and withering
+
+### Problem statement
+How can I make a game where you take your magic from your environment, instead of having innate abilities?
+
+### Idea
+The player has the ability to sap the life force of plants around them, store the magic, and throw it back out to revive other plants. Plants “activate” when they are revived, for instance, a vine becomes climbable. Therefore, the challenge would be activating and deactivating the right plants to be able to make it to the exit. 
+
+### Design values
+Decision making: The player would be deciding which plants to revive and which plants to kill by observing their environment carefully. The player would therefore be developing the skill of deductive reasoning, working backwards from their end goal to figure out how to reach it.
+
+Experience: The player gets to control the environment around them and manipulate it to their liking. They would feel satisfaction when they select the correct plants to revive and they are rewarded with safe passage to their destination.
+
+## Idea #2: Piecing together an illustrated journal/storybook which has gotten partially destroyed
+
+### Problem statement
+How can I make a game that combines Tunic and Return of the Obra Dinn?
+
+### Idea
+The player can flip through the pages of the journal which they do have. They can “enter” the images to see fragments of scenes, but the pages are out of order. As they play the game, the player may find snippets of text or pictures which they can place in order as they try to piece together the story. When the player has a certain amount of correct information, the game will confirm it. 
+
+### Design Values
+
+Challenge: This game would challenge how the player experiences a narrative as, unlike a traditional narrative game, this game’s narrative would be discovered and pieced together anachronistically.
+
+Theme: Maybe the player is piecing together the narrative of someone important to them like their S/O, or a close friend, and they discover they didn’t know them at all. 
+
+## Idea #3: A game illustrating the struggles of anxiety, with fantasy elements
+
+### Problem statement
+How can I make a game that comments on mental health, similar to Gris?
+
+### Idea
+The player must balance their anxiety metre as they switch between the calm world and the nightmare world in their mind, solving puzzles using elements from both worlds while being careful not to overstress themselves.
+
+### Design Values
+
+Experience: The player would need to do certain actions to minimise or purposefully increase their stress depending on the current puzzle they are trying to solve. The player should experience stress and calmness along with their character, mimicking the struggle of anxiety.
+
+Themes: Throughout the game the player would come to terms with their anxiety, and maybe even their ability to function well under stress at times (like hyperfixations and adrenaline in neurodivergent people), and embrace it as part of themselves.
+
 
 
 
