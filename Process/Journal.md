@@ -57,6 +57,27 @@ Experience: The player would need to do certain actions to minimise or purposefu
 
 Themes: Throughout the game the player would come to terms with their anxiety, and maybe even their ability to function well under stress at times (like hyperfixations and adrenaline in neurodivergent people), and embrace it as part of themselves.
 
+# Journal 3 - First Explorative Prototype
+For my first prototype, I explored the mechanic of killing and reviving plants in the environment to solve navigation puzzles. This prototype was mostly implementation-focused: I was testing to see if I could feasibly code the mechanic in mind. This was my first time ever coding platformer-style physics, so I had to test implementation first before I could think about look-and-feel or role.
+
+## Prototype Showcase
+The player spawns in an environment with one dead vine, and one living vine. The player is trying to reach the upper platform on the left.The living vine is climbable, and the dead one is not. The player has no Magic right now, so they cannot shoot anything, either.
+![alt text](images/Prototype1/starting_state.png)
+The player uses right click to vaccuum all living plants' energy within its vicinity. Both plants are now dead.
+![alt text](images/Prototype1/after_vaccuum.png)
+The player has gained some Magic now, which they can use to shoot life force into the plant which will lead them to their goal.
+![alt text](images/Prototype1/shooting_magic.png)
+The plant on the right is now alive. 
+![alt text](images/Prototype1/vine_revived.png)
+The player climbs up, and reaches their goal!
+![alt text](images/Prototype1/win_state.png)
+You can download the prototype [here!](https://github.com/alissia18/CART315/tree/main/Games/ExplorativePrototypes)
+
+## Challenges
+The most difficult part of making this prototype was figuring out how to let the player climb a vine while making it impossible for them to accidentally fall off. I needed to add two colliders on it, one to check whether the player is climbing it and one to react to Magic that is shot at it. Figuring out the initial physics controls was also difficult, but I feel it will be much easier next time I have to make a platformer-style prototype because I have a base script to work from.
+
+## Outcomes
+I was very happy at the end of this exercise because I did achieve my goal! I was able to implement the mechanic successfully. If I were to take this idea further I would prototype look and feel, and maybe come up with some other plants with different effects. I am excited to create more prototypes in Unity!
 
 
 
