@@ -20,6 +20,7 @@ public class Frame : MonoBehaviour
     void Start()
     {
         inventory = InventoryManager.Instance;
+        currentPicture = pictureAnchor.GetComponentInChildren<Picture>();
     }
     public void SetFrame()
     {
@@ -34,19 +35,33 @@ public class Frame : MonoBehaviour
     [Button]
     public void PlacePicture()
     {
-        Picture inventoryPic = inventory.RemoveFromInventory();
-        PlacePicture(inventoryPic);
+        PlacePicture(inventory.RemoveFromInventory());
     }
     
     public void PlacePicture(Picture picture)
     {
-        if (currentPicture != null) currentPicture.Pickup();
+        if (picture == null) return;
+        picture.transform.SetParent(pictureAnchor, false);
+        picture.Place();
+        currentPicture?.OnPickup();
         currentPicture = picture;
-        currentPicture.transform.SetParent(pictureAnchor, false);
-        currentPicture.Place();
     }
 
-   
+    public void PickupPicture()
+    {
+        if (currentPicture)
+        {
+            if (inventory.heldPicture)
+            {
+                PlacePicture();
+            }
+            else
+            {
+                currentPicture.OnPickup();
+                currentPicture = null;
+            }
+        }
+    }
 
     public void Reset() // Gets used whenever you add a component to an object for the first time, or when you click Reset which resets to default values.
     {
@@ -55,5 +70,7 @@ public class Frame : MonoBehaviour
         {
             camera.m_Priority = LOW_PRIORITY;
         }
+        
+        
     }
 }

@@ -38,16 +38,32 @@ public class FrameManager : MonoBehaviour
     }
 
     [Button]
-    public Frame ReturnFrame()
+    public void ReturnFrame()
     {
         if (frames.Count > 1)
         {
             CurrentFrame.UnsetFrame();
-            Frame f = frames.Pop();
+            frames.Pop();
             CurrentFrame.SetFrame();
-            return f;
+
         }
         
-        return null;
+    }
+
+    public void PickupPicture()
+    {
+        if (CurrentFrame != null)
+        {
+            Debug.Log(CurrentFrame.name);
+            CurrentFrame.PickupPicture();
+        }
+    }
+
+    public void PlacePicture()
+    {
+        if (CurrentFrame != null)
+        {
+            CurrentFrame.PlacePicture();
+        }
     }
 }

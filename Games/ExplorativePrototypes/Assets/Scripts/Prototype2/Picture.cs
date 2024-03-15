@@ -9,9 +9,9 @@ public class Picture : MonoBehaviour
     private Canvas canvas;
     public FrameManager manager;
     public InventoryManager inventory;
-
     public Frame connectedFrame;
-
+    public Sprite sprite;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -31,19 +31,19 @@ public class Picture : MonoBehaviour
     }
 
     [Button]
-    public void Pickup()
+    public void OnPickup()
     {
         inventory.AddToInventory(this);
         this.gameObject.SetActive(false);
     }
 
+    public void Pickup()
+    {
+        manager.PickupPicture();
+    }
+
     public void Place()
     {
         this.gameObject.SetActive(true);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

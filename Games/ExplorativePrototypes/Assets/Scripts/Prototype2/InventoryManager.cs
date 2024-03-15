@@ -1,13 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
+    public event Action<Picture> onPictureSet;
+    
     public Picture heldPicture;
 
     public static InventoryManager Instance;
-    // Start is called before the first frame update
+
     void Awake()
     {
         Instance = this;
@@ -19,6 +22,7 @@ public class InventoryManager : MonoBehaviour
         if (p)
         {
             heldPicture = p;
+            onPictureSet?.Invoke(p);
         }
         
     }
@@ -27,6 +31,7 @@ public class InventoryManager : MonoBehaviour
     {
         Picture oldPicture = heldPicture;
         heldPicture = null;
+        onPictureSet?.Invoke(null);
         return oldPicture;
     }
 }
