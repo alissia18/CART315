@@ -85,21 +85,21 @@ For my second prototype, I explored the mechanic of navigating 'scenes within sc
 ## Prototype Showcase
 The player is first shown a screen depicting a journal entry. The writer does not remember what happened to them, and invites the player to enter their memories to a first picture in the journal. Clicking on the picture brings them to a scene containing another picture. There are two other scenes like this.
 
-![alt text](images/Prototype2/starting_screen)
+![alt text](images/Prototype2/starting_screen.png)
 
 For now, the goal is for the player to correctly piece together the gradient, so that in the blue scene, there is the purple picture which leads to the purple scene, in which the pink picture can be found which leads to the pink scene. The pink scene contains the peach picture which leads to the peach scene. 
 
 In summary, blue (journal) > purple > pink > peach. In the real game, the goal would be to piece together the narrative in reverse chronological order, with the present being the image in the journal and any inner images going further back in time. This concept is based on the real-life concept of memories triggering other memories.
 
 This is the solution state:
-![alt text](images/Prototype2/solution_1)
-![alt text](images/Prototype2/solution_2)
-![alt text](images/Prototype2/solution_3)
-![alt text](images/Prototype2/solution_4)
+![alt text](images/Prototype2/solution_1.png)
+![alt text](images/Prototype2/solution_2.png)
+![alt text](images/Prototype2/solution_3.png)
+![alt text](images/Prototype2/solution_4.png)
 
 The player does the rearranging by collecting an image in their envelope then swapping it with the picture in the current scene. 
-![alt text](images/Prototype2/swap_1)
-![alt text](images/Prototype2/swap_2)
+![alt text](images/Prototype2/swap_1.png)
+![alt text](images/Prototype2/swap_2.png)
 
 ## Challenges
 The most difficult part of making this prototype was figuring out how to link different pictures to different scenes and then shuffling them around. I also got mixed up when trying to manage player inventory; it was very difficult to achieve consistent and accurate swapping between the image the player is holding and the image in the current scene. It was definitely the most complex coding I have done in Unity so far.
