@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
 
+    public Animator anim;
     [Header("Tags")] 
     public const string CLIMBABLE_TAG = "Climbable";
     
@@ -77,6 +78,10 @@ public class PlayerController : MonoBehaviour
         {
             Vacuum();
         }
+        else
+        {
+            anim.SetBool("IsVacuuming", false);
+        }
         // start climbing 
         if (!isClimbing && currentInteractibleCol && move_input.y != 0 && (move_input.y > 0 || !isGrounded))
         {
@@ -87,6 +92,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 v = rb.velocity;
+        anim.SetFloat("Speed", Mathf.Abs(v.x));
         if (isClimbing)
         {
             v.y = move_input.y * maxSpeed;
@@ -103,6 +109,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
             currentJumps = 0;
             StopClimbing();
+            anim.SetBool("IsJumping", false);
         }
         else if (!ground && isGrounded)
         {
@@ -116,6 +123,7 @@ public class PlayerController : MonoBehaviour
         {
             if (move_input.y >= 0)
             {
+                anim.SetBool("IsJumping",true);
                 rb.velocity = new Vector2(move_input.x * maxSpeed, jumpVelocity);
             }
             
@@ -125,11 +133,13 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpVelocity);
             currentJumps++;
+            anim.SetBool("IsJumping",true);
         }
     }
     
     public void Shoot()
     {
+        anim.SetTrigger("TwirlAttack");
         Vector3 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
         Vector2 velocity = (mousePosition - shootingPos.position).normalized * projectileSpeed;
 
@@ -139,6 +149,7 @@ public class PlayerController : MonoBehaviour
 
     public void Vacuum()
     {
+        anim.SetBool("IsVacuuming", true);
         Collider2D vacuumPlant = Physics2D.OverlapCircle(shootingPos.position, plantsVacuumRadius, plantsLayer);
         
         if (vacuumPlant)
@@ -153,6 +164,7 @@ public class PlayerController : MonoBehaviour
 
     private void StartClimbing()
     {
+        anim.SetBool("IsClimbing", true);
         isClimbing = true;
         rb.velocity = Vector2.zero;
         Vector3 pos = transform.position;
@@ -167,6 +179,7 @@ public class PlayerController : MonoBehaviour
 
     private void StopClimbing()
     {
+        anim.SetBool("IsClimbing", false);
         isClimbing = false;
         rb.gravityScale = 1f;
         Debug.Log("I'm not climbing anymore :c");
