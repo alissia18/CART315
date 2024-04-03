@@ -111,17 +111,13 @@ At the end of this process, I was surprised that the mechanic had been successfu
 After looking back at my two explorative prototypes, I have decided to expand upon the plant game idea, where the player must balance withering and reviving plants. I decided to focus on look & feel for this first iterative prototype. The first step I took was doing some research and compiling moodboards for the character and the environment.
 
 For the environment, I didn't want to make it a generic forest because that has been extremely overdone. I decided to instead set my game in a fungi forest, setting apart from the more generic forest of trees. Here is the moodboard I came up with for the environment!
-(Moodboard goes here)
+![alt text](images/Iterative1/plantgame_moodboard_BG.png)
 For the color scheme, I decided to take inspiration from a random sketch I'd done a few weeks ago which depicted a similar style of environment.
-(image goes here)
+![alt text](images/Iterative1/mangrove_concept_art.png)
 For the character, I wanted her have a witchy aesthetic because my game is about magic. I also wanted her to match the background, so I though her witch hat could be a mushroom top. I found some character designs online that served as excellent inspiration. Here is the moodboard for the character!
-(moodboard here)
+![alt text](images/Iterative1/plantgame_moodboard_character.png)
 Once I had finished my moodboards, and had a clear idea of what I wanted the game to look like, I made a sheet of concept art testing the color scheme, environment design, and character design.
-(concept art here)
-I also managed to create a proper character sprite sheet for all of the character's animations.
-(character sheet here)
-Lastly, I made a nine-sliced tileset for the game.
-(tileset here)
+![alt text](images/Iterative1/plant_concept_art.png)
 ## Challenges
 The most difficult part of this process was making sure the character stood out from the environment, because the imagery of both was so similar. I ended up superimposing my mockup of the character on the environment to test how much she stood out, and it ended up looking pretty good! Another challenge was figuring out how big to make the tile set. I didn't really have an easy way to pick this, but by roughly measuring against a 2560x1440 base canvas, I settled on 150px.
 
