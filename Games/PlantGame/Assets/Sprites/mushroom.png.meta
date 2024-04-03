@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 21498b917ca910a43b1bca514b44063c
+guid: 59ae4ab45abe2bf4d8715cc9f229c793
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,73 +90,62 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: photo_pink
+      name: shroom_top
       rect:
         serializedVersion: 2
-        x: 162
-        y: 642
-        width: 324
-        height: 410
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 7
+        y: 125
+        width: 288
+        height: 76
+      alignment: 9
+      pivot: {x: 0.4988043, y: 0.14658576}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78398c5ea011244488b1abf23af9d48b
-      internalID: -2060289486
+      spriteID: 7125634cad6f78e4592b88884628c3e1
+      internalID: 2024076012
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: photo_peach
+      name: shroom_stem
       rect:
         serializedVersion: 2
-        x: 541
-        y: 663
-        width: 322
-        height: 410
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 117
+        y: 17
+        width: 80
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5086088, y: 0.1251352}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cba343b2b1b988245b3a066a632a8dd1
-      internalID: -320029136
+      spriteID: f28f84f7a36ae2f4c8cdbd6bf012e6eb
+      internalID: -192084230
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: photo_purple
+      name: shroom_spots_1
       rect:
         serializedVersion: 2
-        x: 945
-        y: 667
-        width: 323
-        height: 410
+        x: 28
+        y: 234
+        width: 97
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 010fb600cd3dff540a87604e2a71cb21
-      internalID: 681330094
+      spriteID: 74038050f3263a54ca10b990dd07bc67
+      internalID: -607656763
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pickup
+      name: shroom_spots_2
       rect:
         serializedVersion: 2
-        x: 1398
-        y: 639
-        width: 248
-        height: 271
+        x: 161
+        y: 226
+        width: 114
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,71 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4347139c79c8b4a499c8ab7074a82890
-      internalID: 1882587505
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: envelope_front
-      rect:
-        serializedVersion: 2
-        x: 1938
-        y: 673
-        width: 518
-        height: 334
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d9978ff40455e56479cdf20c3428f3ab
-      internalID: -1347915255
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: return_arrow
-      rect:
-        serializedVersion: 2
-        x: 27
-        y: 29
-        width: 227
-        height: 182
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 34ae9c8a3808f9246ba52a13b46c3b51
-      internalID: -1317618831
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: envelope_back
-      rect:
-        serializedVersion: 2
-        x: 1946
-        y: 28
-        width: 507
-        height: 566
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 24621a2951006504fb0260e5a821e16e
-      internalID: 1582657926
+      spriteID: e3f0ca2fa89e41d4c9e1fa065ae43f64
+      internalID: -1979607803
       vertices: []
       indices: 
       edges: []
@@ -262,16 +191,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      envelope_back: 1582657926
-      envelope_front: -1347915255
-      photo_peach: -320029136
-      photo_pink: -2060289486
-      photo_purple: 681330094
-      pickup: 1882587505
-      return_arrow: -1317618831
-  spritePackingTag: 
+      mushroom_2: -564346223
+      mushroom_3: -890009043
+      mushroom_4: 678491318
+      mushroom_5: -280020027
+      shroom_spots_1: -607656763
+      shroom_spots_2: -1979607803
+      shroom_stem: -192084230
+      shroom_top: 2024076012
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
