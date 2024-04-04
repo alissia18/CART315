@@ -89,7 +89,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -100,7 +100,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 6}
   m_EdgeRadius: 0
 --- !u!114 &9066146262887397671
 MonoBehaviour:
@@ -114,8 +114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5234235d7280e9b4a8a4d3559f63a943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  renderer: {fileID: 5246982514428915778}
+  plantCol: {fileID: 6000470477174378776}
   interactibleCol: {fileID: 1651429565075571625}
   anim: {fileID: 5866895416380786463}
+  size: {x: 1, y: 6}
   isAlive: 1
   magicCost: 10
   isAliveAnimTag: isAlive
@@ -183,7 +186,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.037255287}
+  m_Offset: {x: 0, y: -3}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -194,7 +197,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 5.942564}
+  m_Size: {x: 1, y: 6}
   m_EdgeRadius: 0
 --- !u!1 &7402728147057723200
 GameObject:
@@ -267,7 +270,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 11672795
-  m_SortingLayer: 2
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ef3409ad3919de942b488e7fe5570599, type: 3}
   m_Color: {r: 0.8207547, g: 0.30507296, b: 0.43360046, a: 1}

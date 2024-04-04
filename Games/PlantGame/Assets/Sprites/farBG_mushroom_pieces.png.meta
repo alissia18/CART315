@@ -1,0 +1,604 @@
+fileFormatVersion: 2
+guid: 5617504957de62547815ce69626982f6
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 150
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BGshroom_top1
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 1709
+        width: 1269
+        height: 450
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d11151cd8154a649b0ef40a22834396
+      internalID: -1546596371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_top2
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 1741
+        width: 816
+        height: 435
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9a90e382a970b4381087a27fe72d92
+      internalID: -944412935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_top3
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 1396
+        width: 1001
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2dab2be3c4761d248ae17e96b7e008ef
+      internalID: -1546328779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_connector1
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 1341
+        width: 291
+        height: 258
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f5bec30deded684ca971beb41c07a6c
+      internalID: -331605234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_connector2
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 1339
+        width: 270
+        height: 272
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f928a1ec729314a4585884166fb2957b
+      internalID: -2093603493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_connector3
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 1368
+        width: 274
+        height: 245
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62b9c64021f784c4b88829b423382b21
+      internalID: -853968599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_vegetation1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 577
+        width: 419
+        height: 696
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c354f1309a622148abfbf13d97a9e79
+      internalID: 1189566828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_vegetation2
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 719
+        width: 427
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6af9e11346e618418ca1cbdf743350b
+      internalID: 319021586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_vegetation3
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 688
+        width: 463
+        height: 596
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd0e88d23075a95448f2edc122cfb716
+      internalID: 1192479580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_top4
+      rect:
+        serializedVersion: 2
+        x: 1749
+        y: 1016
+        width: 575
+        height: 341
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4fbb283a49bc22b46baa38369bfa22e4
+      internalID: -338019209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_top5
+      rect:
+        serializedVersion: 2
+        x: 1722
+        y: 766
+        width: 682
+        height: 221
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 466d7281c3513224fa3a16a536e06192
+      internalID: -1078998632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_vegetation7
+      rect:
+        serializedVersion: 2
+        x: 1482
+        y: 484
+        width: 219
+        height: 275
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1950709338a70b4da8d79dfcea193f5
+      internalID: -323566395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_base2
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 17
+        width: 484
+        height: 510
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6669591377904414290c9590e9dab397
+      internalID: -917044043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_base1
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 4
+        width: 488
+        height: 565
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b97f66a1d99498c4bb66dbbcbbdd6888
+      internalID: -599360554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_vegetation5
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 37
+        width: 313
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 351f3c048914d9e4d8deb9b0cac66556
+      internalID: -1504894150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_vegetation6
+      rect:
+        serializedVersion: 2
+        x: 2243
+        y: 67
+        width: 250
+        height: 385
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96cb501d26cc07543bba8f23b3cae311
+      internalID: -1804186589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_stem
+      rect:
+        serializedVersion: 2
+        x: 1256
+        y: 93
+        width: 152
+        height: 153
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7803f95faa5a2414b9c2ad7e84c92f1b
+      internalID: 79169446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_vegetation4
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 49
+        width: 308
+        height: 328
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cd33fb62611e394097fe750768a23fd
+      internalID: 14023244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_base_smallshrooms1
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1916
+        width: 209
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e3d008a6ee8bea4b83fb31d32fad1b2
+      internalID: 1237048489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_base_smallshrooms2
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 1668
+        width: 212
+        height: 222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 543a15f54015c734ca257ba45dcfe716
+      internalID: -671405604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BGshroom_base_smallshrooms3
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 355
+        width: 182
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c5a7b343d624d142821567b7f15d4b3
+      internalID: -1964459701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shroom_base_smallshrooms4
+      rect:
+        serializedVersion: 2
+        x: 1777
+        y: 476
+        width: 210
+        height: 248
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c6d5dc92d65bc44a96f6058d632ef6d
+      internalID: -23150528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      BGshroom_base1: -599360554
+      BGshroom_base2: -917044043
+      BGshroom_base_smallshrooms1: 1237048489
+      BGshroom_base_smallshrooms2: -671405604
+      BGshroom_base_smallshrooms3: -1964459701
+      BGshroom_connector1: -331605234
+      BGshroom_connector2: -2093603493
+      BGshroom_connector3: -853968599
+      BGshroom_stem: 79169446
+      BGshroom_top1: -1546596371
+      BGshroom_top2: -944412935
+      BGshroom_top3: -1546328779
+      BGshroom_top4: -338019209
+      BGshroom_top5: -1078998632
+      BGshroom_vegetation1: 1189566828
+      BGshroom_vegetation2: 319021586
+      BGshroom_vegetation3: 1192479580
+      BGshroom_vegetation4: 14023244
+      BGshroom_vegetation5: -1504894150
+      BGshroom_vegetation6: -1804186589
+      BGshroom_vegetation7: -323566395
+      farBG_mushroom_pieces_12: -1174812629
+      farBG_mushroom_pieces_16: -792541188
+      farBG_mushroom_pieces_18: 458403715
+      farBG_mushroom_pieces_19: 2122936786
+      farBG_mushroom_pieces_22: -1410625391
+      farBG_mushroom_pieces_23: -2014871684
+      shroom_base_smallshrooms4: -23150528
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

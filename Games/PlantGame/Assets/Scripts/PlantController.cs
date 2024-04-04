@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class PlantController : MonoBehaviour
 {
-    public Collider2D interactibleCol;
+    public SpriteRenderer renderer;
+    public BoxCollider2D plantCol;
+    public BoxCollider2D interactibleCol;
     public Animator anim;
-    
-    [Space]
-    
+
+    [Space] public Vector2 size = Vector2.one;
     public bool isAlive;
     public int magicCost = 10;
     
@@ -50,12 +51,25 @@ public class PlantController : MonoBehaviour
 
     private void Reset()
     {
-        interactibleCol = GetComponentInChildren<Collider2D>();
+        interactibleCol = GetComponentInChildren<BoxCollider2D>();
         anim = GetComponentInChildren<Animator>();
     }
 
     private void OnValidate()
     {
         magicCost = Math.Max(magicCost, 0);
+
+        if (renderer != null) renderer.size = size;
+        if (plantCol != null)
+        {
+            plantCol.size = size;
+            plantCol.offset = new Vector2(0, -size.y / 2);
+        }
+
+        if (interactibleCol != null)
+        {
+            interactibleCol.size = size;
+            interactibleCol.offset = new Vector2(0, -size.y / 2);
+        }
     }
 }
