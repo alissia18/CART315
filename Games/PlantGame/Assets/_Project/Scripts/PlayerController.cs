@@ -8,8 +8,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     public Animator anim;
+    public SpriteRenderer spriteRenderer;
     [Header("Tags")] 
     public const string CLIMBABLE_TAG = "Climbable";
+
+    public const string SHROOM_TAG = "Mushroom";
     
     [Header("Movement")]
     
@@ -18,6 +21,7 @@ public class PlayerController : MonoBehaviour
     public float jumpVelocity = 6.5f;
     public int maxJumps = 1;
     public bool facingRight = true;
+    public int bounceVelocity = 6;
     
     private int currentJumps;
     
@@ -58,7 +62,16 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        move_input.x = Input.GetAxis(HORIZONTAL_AXIS); //gives a value from -1 to 1, -1 being a and 1 being d. Smoothing is applied (awwegedwy :0)
+        //gives a value from -1 to 1, -1 being a and 1 being d. Smoothing is applied (awwegedwy :0)
+        move_input.x = Input.GetAxis(HORIZONTAL_AXIS);
+        if (move_input.x < 0.0f)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
         move_input.y = Input.GetAxis(VERTICAL_AXIS);
 
         // jump with space
@@ -136,6 +149,11 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("IsJumping",true);
         }
     }
+
+    public void Bounce()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, bounceVelocity);
+    }
     
     public void Shoot()
     {
@@ -174,7 +192,6 @@ public class PlayerController : MonoBehaviour
         currentJumps = 0;
         
         rb.gravityScale = 0f;
-        Debug.Log("I'm climbing now");
     }
 
     private void StopClimbing()
@@ -182,7 +199,6 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("IsClimbing", false);
         isClimbing = false;
         rb.gravityScale = 1f;
-        Debug.Log("I'm not climbing anymore :c");
     }
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
@@ -190,8 +206,23 @@ public class PlayerController : MonoBehaviour
         {
             case CLIMBABLE_TAG:
                 currentInteractibleCol = otherCollider;
-                Debug.Log("Found a plant to climb");
                 break;
+            case SHROOM_TAG:
+                Bounce();
+                break;
+                
+        }
+    }
+    
+    private void OnCollisionEnter2D(Collision2D otherCollider)
+    {
+        switch (otherCollider.gameObject.tag)
+        {
+            case SHROOM_TAG:
+                Debug.Log("I am bouncing on a shroom!");
+                Bounce();
+                break;
+                
         }
     }
 

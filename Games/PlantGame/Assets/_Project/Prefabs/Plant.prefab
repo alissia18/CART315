@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2001843245292463438}
   - component: {fileID: 5866895416380786463}
   - component: {fileID: 6000470477174378776}
-  - component: {fileID: 9066146262887397671}
+  - component: {fileID: 6714758627841326279}
   m_Layer: 7
   m_Name: Plant
   m_TagString: Plant
@@ -102,7 +102,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 6}
   m_EdgeRadius: 0
---- !u!114 &9066146262887397671
+--- !u!114 &6714758627841326279
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,17 +111,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3060346933803880528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5234235d7280e9b4a8a4d3559f63a943, type: 3}
+  m_Script: {fileID: 11500000, guid: e7ac908881726ee43a75aa64919dc958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 5246982514428915778}
   plantCol: {fileID: 6000470477174378776}
-  interactibleCol: {fileID: 1651429565075571625}
   anim: {fileID: 5866895416380786463}
   size: {x: 1, y: 6}
   isAlive: 1
   magicCost: 10
   isAliveAnimTag: isAlive
+  interactibleCol: {fileID: 1651429565075571625}
 --- !u!1 &3780446546424538835
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +273,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ef3409ad3919de942b488e7fe5570599, type: 3}
-  m_Color: {r: 0.8207547, g: 0.30507296, b: 0.43360046, a: 1}
+  m_Color: {r: 0.5137255, g: 0.9803922, b: 0.80392164, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2

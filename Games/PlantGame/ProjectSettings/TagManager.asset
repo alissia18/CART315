@@ -7,6 +7,7 @@ TagManager:
   - Plant
   - Climbable
   - KillZone
+  - Mushroom
   layers:
   - Default
   - TransparentFX
