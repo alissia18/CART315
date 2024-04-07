@@ -124,3 +124,4 @@ The most difficult part of this process was making sure the character stood out 
 ## Outcomes
 At the end of this process, I was happy with the art I had come up with. I am excited to test it all out in Unity and I hope it will work together as well as it does in the concept art!
 
+# Journal 6 - Second Iterative Prototype
