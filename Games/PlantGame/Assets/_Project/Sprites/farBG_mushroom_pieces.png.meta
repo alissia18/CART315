@@ -331,10 +331,10 @@ TextureImporter:
       name: BGshroom_vegetation7
       rect:
         serializedVersion: 2
-        x: 1482
-        y: 484
-        width: 219
-        height: 275
+        x: 2050
+        y: 456
+        width: 240
+        height: 293
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

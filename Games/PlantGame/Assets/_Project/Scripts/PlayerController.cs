@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -13,15 +14,15 @@ public class PlayerController : MonoBehaviour
     public const string CLIMBABLE_TAG = "Climbable";
 
     public const string SHROOM_TAG = "Mushroom";
-    
-    [Header("Movement")]
-    
+    public const string PLAYER_TAG = "Player";
+
+    [Header("Movement")] 
+    public float gravityScale = 2f;
     // Move player in 2D space
     public float maxSpeed = 3.4f;
     public float jumpVelocity = 6.5f;
     public int maxJumps = 1;
     public bool facingRight = true;
-    public int bounceVelocity = 6;
     
     private int currentJumps;
     
@@ -39,12 +40,21 @@ public class PlayerController : MonoBehaviour
     public ProjectileController projectileController;
     public LayerMask plantsLayer;
     public float plantsVacuumRadius = 3.5f;
-    
+
+    private bool isVacuuming;
     private bool isClimbing;
     private Collider2D currentInteractibleCol;
     public LayerMask interactibleLayer;
     
     private Rigidbody2D currentProjectile;
+
+    [Header("Feedback")] 
+    
+    public Material magic;
+    private Material baseMaterial;
+
+    public List<GameObject> charges = new List<GameObject>();
+    private int activeCharges;
     
     private const string HORIZONTAL_AXIS = "Horizontal";
     private const string JUMP_INPUT = "Jump";
@@ -58,25 +68,28 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         camera = Camera.main;
+        baseMaterial = spriteRenderer.material;
+
+        activeCharges = -1;
+        UpdateCharges();
     }
 
     private void Update()
     {
         //gives a value from -1 to 1, -1 being a and 1 being d. Smoothing is applied (awwegedwy :0)
         move_input.x = Input.GetAxis(HORIZONTAL_AXIS);
-        if (move_input.x < 0.0f)
-        {
-            spriteRenderer.flipX = true;
-        }
-        else
-        {
-            spriteRenderer.flipX = false;
-        }
         move_input.y = Input.GetAxis(VERTICAL_AXIS);
-
-        // jump with space
-        if (Input.GetButtonDown(JUMP_INPUT)) Jump();
-
+        
+        // vaccuum while right click is pressed
+        if (!isVacuuming && Input.GetMouseButtonDown(1))
+        {
+            isVacuuming = true;
+        }
+        else if (isVacuuming && Input.GetMouseButtonUp(1))
+        {
+            isVacuuming = false;
+        }
+        
         // shoot with left click
         if (Input.GetMouseButtonDown(0))
         {
@@ -84,29 +97,34 @@ public class PlayerController : MonoBehaviour
             {
                 Shoot();
             }
-            
         }
-        // vaccuum while right click is pressed
-        if (Input.GetMouseButton(1))
+        
+        if (isVacuuming)
         {
             Vacuum();
         }
-        else
-        {
-            anim.SetBool("IsVacuuming", false);
-        }
+        // actions we can't do while vacuuming
         // start climbing 
-        if (!isClimbing && currentInteractibleCol && move_input.y != 0 && (move_input.y > 0 || !isGrounded))
+        else if (!isClimbing && currentInteractibleCol && move_input.y != 0 && (move_input.y > 0 || !isGrounded))
         {
             StartClimbing();
         }
+        // jump with space
+        else if (Input.GetButtonDown(JUMP_INPUT)) Jump();
+
+        HandleAnimations();
+        UpdateCharges();
     }
 
     private void FixedUpdate()
     {
         Vector2 v = rb.velocity;
-        anim.SetFloat("Speed", Mathf.Abs(v.x));
-        if (isClimbing)
+
+        if (isVacuuming)
+        {
+            v = Vector2.zero;
+        }
+        else if (isClimbing)
         {
             v.y = move_input.y * maxSpeed;
         }
@@ -122,7 +140,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
             currentJumps = 0;
             StopClimbing();
-            anim.SetBool("IsJumping", false);
+            
         }
         else if (!ground && isGrounded)
         {
@@ -136,7 +154,6 @@ public class PlayerController : MonoBehaviour
         {
             if (move_input.y >= 0)
             {
-                anim.SetBool("IsJumping",true);
                 rb.velocity = new Vector2(move_input.x * maxSpeed, jumpVelocity);
             }
             
@@ -146,17 +163,12 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpVelocity);
             currentJumps++;
-            anim.SetBool("IsJumping",true);
         }
     }
 
-    public void Bounce()
-    {
-        rb.velocity = new Vector2(rb.velocity.x, bounceVelocity);
-    }
-    
     public void Shoot()
     {
+        isVacuuming = false;
         anim.SetTrigger("TwirlAttack");
         Vector3 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
         Vector2 velocity = (mousePosition - shootingPos.position).normalized * projectileSpeed;
@@ -167,22 +179,21 @@ public class PlayerController : MonoBehaviour
 
     public void Vacuum()
     {
-        anim.SetBool("IsVacuuming", true);
-        Collider2D vacuumPlant = Physics2D.OverlapCircle(shootingPos.position, plantsVacuumRadius, plantsLayer);
-        
-        if (vacuumPlant)
+        List<Collider2D> plants = Physics2D.OverlapCircleAll(shootingPos.position, plantsVacuumRadius, plantsLayer).ToList();
+        plants = plants.OrderBy(p => (p.transform.position - transform.position).sqrMagnitude).ToList();
+
+        foreach (Collider2D plant in plants)
         {
-            PlantController plant = vacuumPlant.GetComponent<PlantController>();
-            if (plant && plant.isAlive)
-            {
-                plant.Kill();
+            PlantController controller = plant.GetComponent<PlantController>();
+            if (controller && controller.isAlive) {
+                controller.Kill();
+                break;
             }
         }
     }
 
     private void StartClimbing()
     {
-        anim.SetBool("IsClimbing", true);
         isClimbing = true;
         rb.velocity = Vector2.zero;
         Vector3 pos = transform.position;
@@ -196,10 +207,47 @@ public class PlayerController : MonoBehaviour
 
     private void StopClimbing()
     {
-        anim.SetBool("IsClimbing", false);
         isClimbing = false;
-        rb.gravityScale = 1f;
+        rb.gravityScale = gravityScale;
     }
+
+    public void HandleAnimations()
+    {
+        anim.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        anim.SetBool("IsJumping", !isGrounded);
+        anim.SetBool("IsClimbing", isClimbing);
+        anim.SetBool("IsVacuuming", isVacuuming);
+        
+        //change character direction
+        Vector3 scale = spriteRenderer.transform.localScale;
+        scale.x = (move_input.x > 0f)? Mathf.Abs(scale.x) : 
+            (move_input.x < 0f)? scale.x = -Mathf.Abs(scale.x) : scale.x;
+        spriteRenderer.transform.localScale = scale;
+    }
+
+    public void ActivateMagic()
+    {
+        spriteRenderer.material = magic;
+    }
+
+    public void DeactivateMagic()
+    {
+        spriteRenderer.material = baseMaterial;
+    }
+
+    public void UpdateCharges()
+    {
+        if (activeCharges == GameManager.Instance.magicLeft)
+            return;
+        
+        for (int i = 0; i < charges.Count; i++)
+        {
+            charges[i].SetActive(i < GameManager.Instance.magicLeft);
+        }
+
+        activeCharges = GameManager.Instance.magicLeft;
+    }
+    
     private void OnTriggerEnter2D(Collider2D otherCollider)
     {
         switch (otherCollider.gameObject.tag)
@@ -207,22 +255,6 @@ public class PlayerController : MonoBehaviour
             case CLIMBABLE_TAG:
                 currentInteractibleCol = otherCollider;
                 break;
-            case SHROOM_TAG:
-                Bounce();
-                break;
-                
-        }
-    }
-    
-    private void OnCollisionEnter2D(Collision2D otherCollider)
-    {
-        switch (otherCollider.gameObject.tag)
-        {
-            case SHROOM_TAG:
-                Debug.Log("I am bouncing on a shroom!");
-                Bounce();
-                break;
-                
         }
     }
 
