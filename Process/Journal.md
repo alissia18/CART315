@@ -125,3 +125,20 @@ The most difficult part of this process was making sure the character stood out 
 At the end of this process, I was happy with the art I had come up with. I am excited to test it all out in Unity and I hope it will work together as well as it does in the concept art!
 
 # Journal 6 - Second Iterative Prototype
+With the concept art for the game completed, I decided to continue experimenting look and feel for this week's prototype. Aside from that, I did a bit of implementation (adding a bouncy mushroom) and role (coming up with a basic test level)! So, this week's prototyping was a bit of a mixed bag.
+
+## Look & Feel
+At first, I was a bit discouraged by how flat my assets looked in the game. Without any post processing, it looked underwhelming and not at all how I imagined.
+![alt text](images/Iterative2/iterative2_img2.png)
+I asked for help from my partner and she taught me about post-processing in Unity. This was a game-changer for the atmosphere of my game! Adding fireflies, bokeh, global bloom and emissives brought the mushroom forest to life.
+![alt text](images/Iterative2/iterative2_img3.png)
+
+## Implementation
+The base prototype had only one type of interactible plant: vines you could climb. I thought another fun plant to add could be a bouncy mushroom. This brought on its own set of coding challenges because I had to compartmentalize the functionality of a "Plant", separated from the more specific functionalities of "Mushroom" and "Vine". I experimented with inheritance but in the end separated the code so that each plant would have a Plant Controller as well as its specific Controller. It was a really fun coding challenge!
+![alt text](images/Iterative2/iterative2_img1.png)
+
+## Role
+Lastly, I sketched out a test level layout that I could make to test all the functionalities of the game. I included both the mushrooms and the vines. Once the player reaches the objective, the game would end. I am not very familiar with level design, but hopefully this little layout will be enough to showcase the game's mechanics at this week's pitch.
+![alt text](images/Iterative2/leveldesign.png)
+## Outcomes
+I am pretty happy with where the game is now. The atmosphere feels exactly how I imagined and I am excited to add onto it for the demonstration!
