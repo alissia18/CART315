@@ -18,7 +18,7 @@ public class MenuScript : MonoBehaviour
     {
         if (Input.GetKeyDown(startKey))
         {
-            SceneManager.LoadScene("Tutorial");
+            SceneManager.LoadScene("Level1");
         }
     }
 }
