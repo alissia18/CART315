@@ -9,24 +9,23 @@ public class NPCController : MonoBehaviour
     public string visibleTag;
     public Collider2D dialogueCol;
     public Animator textboxAnimator;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
+    public GameObject requestText;
+    public GameObject itemCollectedText;
 
     void OnTriggerEnter2D(Collider2D otherCol)
     {
         switch (otherCol.gameObject.tag)
         {
             case PLAYER_TAG:
+                requestText.SetActive(!GameManager.Instance.itemCollected);
+                itemCollectedText.SetActive(GameManager.Instance.itemCollected);
+
+                if (GameManager.Instance.itemCollected)
+                {
+                    GameManager.Instance.playerController.canMove = false;
+                }
+
                 textboxAnimator.SetBool(visibleTag, true);
                 break;
         }

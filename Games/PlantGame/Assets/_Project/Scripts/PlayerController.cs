@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public const string SHROOM_TAG = "Mushroom";
     public const string PLAYER_TAG = "Player";
 
+    public bool canMove = true;
+
     [Header("Movement")] 
     public float gravityScale = 2f;
     // Move player in 2D space
@@ -76,6 +78,16 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (!canMove)
+        {
+            move_input.x = 0;
+            move_input.y = 0;
+
+            isVacuuming = false;
+            if (isClimbing) StopClimbing();
+            return;
+        }
+
         //gives a value from -1 to 1, -1 being a and 1 being d. Smoothing is applied (awwegedwy :0)
         move_input.x = Input.GetAxis(HORIZONTAL_AXIS);
         move_input.y = Input.GetAxis(VERTICAL_AXIS);
@@ -119,6 +131,13 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 v = rb.velocity;
+
+        if (!canMove)
+        {
+            v.x = 0;
+            rb.velocity = v;
+            return;
+        }
 
         if (isVacuuming)
         {
