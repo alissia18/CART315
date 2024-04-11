@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public KeyCode restartKey = KeyCode.R;
     public PlayerController playerController;
     public int magicLeft = 0;
+    public string winScreen;
+    public float winDelay = 6;
     public bool itemCollected {get; private set;}
 
     public static GameManager Instance;
@@ -29,6 +31,18 @@ public class GameManager : MonoBehaviour
     public void CollectItem()
     {
         itemCollected = true;
+    }
+
+    public void CompleteLevel()
+    {
+        StartCoroutine(CompleteLevelCoroutine());
+    }
+
+    private IEnumerator CompleteLevelCoroutine()
+    {
+        //GameManager.Instance.playerController.canMove = false;
+        yield return new WaitForSeconds(winDelay);
+        SceneManager.LoadScene(winScreen);
     }
 
     public void UpdateMagic(int change)

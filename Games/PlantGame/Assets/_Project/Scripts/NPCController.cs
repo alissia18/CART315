@@ -23,7 +23,7 @@ public class NPCController : MonoBehaviour
 
                 if (GameManager.Instance.itemCollected)
                 {
-                    GameManager.Instance.playerController.canMove = false;
+                    GameManager.Instance.CompleteLevel();
                 }
 
                 textboxAnimator.SetBool(visibleTag, true);
