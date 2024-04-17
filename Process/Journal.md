@@ -142,3 +142,22 @@ Lastly, I sketched out a test level layout that I could make to test all the fun
 ![alt text](images/Iterative2/leveldesign.png)
 ## Outcomes
 I am pretty happy with where the game is now. The atmosphere feels exactly how I imagined and I am excited to add onto it for the demonstration!
+
+# Journal 7 - Final Thoughts
+For the pitch, I had to think about what game this small plant prototype could turn into. I thought at first it would be level-based, but the atmosphere I had created lent itself much better to an open-world game. After doing some brainstorming, I came up with a core game loop.
+
+Here it is:
+- Roam the **town hub**, talking to NPCs and maybe buying power-ups to prepare for your next journey. Accept **requests** from NPCs.
+- Set out into the woods to find the ingredients NPCs have requested from you.
+- Once you've found all the plants, return to the **town hub** and give the ingredients to NPCs. 
+- Accept new requests! And so on...
+
+Of course, for the pitch, I would not have time to implement all of this. Instead, I wanted to showcase  **vertical slice** of what the full game could look like. So, I decided to add one NPC. She tells the player she is looking for a special ingredient called Emberleaf. Then, the player journeys through the forest to find the Emberleaf. When they bring it back to the NPC, the game ends and a winning screen displays!
+![alt text](images/FinalJournal/npc.png)
+One last thing I did was add in a menu screen, win screen and tutorial graphics in the level. Even though it was just a vertical slice of the game, it felt important to at least add some of those basic transition screens.
+![alt text](images/FinalJournal/menu.png)
+## Reflection
+I have always wanted to make a cutesy immersive fantasy game, and this class helped me achieve that. I had hoped to add more variety to the game (more environments and the town hub), but there just wasn't enough time. I have made games in Unity before, but I have only ever done the art for them. Needing to manage programming, lighting, level design, animations and all the little details needed to keep everything together made the process a lot longer than I expected. I had a lot of fun developing this game and I would have spent all my time just on this project if I didn't have three other classes to worry about.
+![alt text](images/FinalJournal/emberleaf.png)
+Here is a link to the web build on Itch.io!
+I am hoping to continue working on this game in the future, and I am eager to learn more about Unity and improve my coding skills. 
